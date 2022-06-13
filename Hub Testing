@@ -1,0 +1,67 @@
+if game.PlaceId == 155615604 then
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Prison Life", "Sentinel")
+
+--main
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+MainSection:NewDropdown("Give Gun", "Gives the player a gun", {"Remington 870", "M9", "AK-47"}, function(v)
+    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+    local Event = game:GetService("Workspace").Remote.ItemHandler
+    Event:InvokeServer(A_1)
+    
+end)
+
+MainSection:NewDropdown(" Gun Mod ", "Makes The Gun OP", {"Remington 870", "M9", "AK-47"}, function(v)
+    local module = nil
+    if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
+        module = require(game:GetService("Players").LocalPlayer.Backpack[v].GunStates)
+    elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(v) then
+        module = reguire(game:GetService("Players").LocalPlayer.Backpack[v].GunStates)
+    end
+    if module ~= nil then
+        module["MaxAmmo"] = math.huge
+        module["StoredAmmo"] = math.huge
+        module["CurrentAmmo"] = math.huge
+        module["FireRate"] = 0.000001
+        module["Spread"] = 0
+        module["Range"] = math.huge
+        module["Bullets"] = 10
+        module["ReloadTime"] = 0
+        module["AutoFire"] = true
+    end
+end)
+    --player
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+PlayerSection:NewSlider("WalkSpeed", "Changes your WalkSpeed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+    PlayerSection:NewSlider("JumpPower", "Changes your JumpPower", 250, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+    local Settings = Window:NewTab("Settings")
+    local SettingsSection = Settings:NewSection("Toggle UI")
+    SettingsSection:NewKeybind("Toogle UI", "Toggle UI (V)", Enum.KeyCode.V, function()
+        Library:ToggleUI()
+    end)
+end
+if game.PlaceId == 7180042682 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Military Tycoon", "Synapse")
+
+    --teleports
+    local Teleport = Window:NewTab("Teleport")
+    local TeleportSection = Teleport:NewSection("Teleport")
+    TeleportSection:NewButton("Middle", "Teleport to the middle", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.38413924, 205.499954, -3.29829001, -0.412867785, -2.96561478e-08, -0.91079098, -6.39802806e-08, 1, -3.55817265e-09, 0.91079098, 5.68036072e-08, -0.412867785)
+    end)
+    
+
+
+
+
+
+end
+
