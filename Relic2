@@ -6,7 +6,7 @@ local function espPart(part, text, color)
  local textlab = Instance.new('TextLabel', billgui)
  
  billgui.Name = "ESP"
- billgui.AlwaysOnTop = false
+ billgui.AlwaysOnTop = true
  billgui.ExtentsOffset = Vector3.new(0, 3, 0)
  billgui.Size = UDim2.new(10, 0, 10, 0)
     --billgui.MaxDistance = _G.maxdistance or 500
@@ -22,7 +22,7 @@ local function espPart(part, text, color)
  textlab.Font = 'SciFi'
  textlab.FontSize = 'Size14'
  textlab.Text = text
- textlab.TextTransparency = 0
+ textlab.TextTransparency = 1
  textlab.TextStrokeTransparency = 1
  textlab.TextColor3 = color
  end
@@ -35,6 +35,6 @@ local function espPart(part, text, color)
  
  workspace.DescendantAdded:Connect(function(v)
     if v:IsA("MeshPart") and v.Name == "Relic" then
-        espPart(v, "Relic", Color3.new(0, 204, 255))
+        espPart(v, "Relic", Color3.new(255, 0, 0))
     end
  end)
