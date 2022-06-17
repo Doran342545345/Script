@@ -35,6 +35,6 @@ local function espPart(part, text, color)
  
  workspace.DescendantAdded:Connect(function(v)
     if v:IsA("MeshPart") and v.Name == "Relic" then
-        espPart(v, "Relic", Color3.new(0, 204, 255))
+        espPart(v, "Relic", Color3.new(255, 0, 0))
     end
  end)
