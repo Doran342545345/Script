@@ -6,15 +6,15 @@
     local on = false -- Use this if your making gui
 
     local Box_Color = Color3.fromRGB(255, 0, 0)
-    local Box_Thickness = 2
+    local Box_Thickness = 0
     local Box_Transparency = 1
 
-    local Tracers = true
+    local Tracers = false
     local Tracer_Color = Color3.fromRGB(255, 0, 0)
-    local Tracer_Thickness = 2
+    local Tracer_Thickness = 0
     local Tracer_Transparency = 1
 
-    local Autothickness = true
+    local Autothickness = false
 
     local Team_Check = true
     local red = Color3.fromRGB(227, 52, 52)
